@@ -6,4 +6,7 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()}
+<main class="container mx-auto">
+	<h1 class="text-2xl font-[250]">Daniel Studdard Gallups</h1>
+	{@render children()}
+</main>
