@@ -16,12 +16,12 @@
 	{href}
 	target={is_external ? '_blank' : '_self'}
 	rel={is_external ? 'noopener noreferrer' : ''}
-	class="flex grow basis-50 flex-col overflow-hidden rounded preset-outlined-primary-100-900 text-inherit no-underline shadow-sm hover:underline"
+	class="group flex grow basis-50 flex-col overflow-hidden rounded preset-outlined-primary-100-900 text-inherit no-underline shadow-sm"
 >
 	<img src={banner} class="h-24 w-full overflow-hidden object-cover" alt={name} />
 	<div class="flex justify-between">
 		<div class="px-1 py-1 pb-1.5">
-			<div class="">{name}</div>
+			<div class="group-hover:underline">{name}</div>
 			<div class="text-sm">{description}</div>
 		</div>
 	</div>
