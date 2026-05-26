@@ -1,5 +1,7 @@
 node_modules
 
+
+output.pdf
 # Output
 .output
 .vercel
@@ -7,6 +9,7 @@ node_modules
 .wrangler
 .svelte-kit
 build
+.claude
 
 # OS
 .DS_Store

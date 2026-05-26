@@ -1,81 +1,84 @@
 #set page(
   paper: "us-letter",
-  margin: (x: 0.7in, top: 0.5in, bottom: 0.5in),
+  margin: (x: 0.7in, top: 0.45in, bottom: 0.45in),
 )
 
-#set text(font: "Helvetica Neue", size: 10.5pt)
-#set par(leading: 0.55em, justify: false)
+#set text(font: "Helvetica Neue", size: 10pt)
+#set par(leading: 0.45em, justify: false)
 
 #show list: set list(indent: 0.6em, body-indent: 0.4em)
 
 #let section(title) = {
-  v(0.6em)
+  v(0.4em)
   text(weight: "bold", size: 12pt, title)
   v(-0.5em)
   line(length: 100%, stroke: 0.6pt)
-  v(0.1em)
+  v(0.05em)
 }
 
-#let entry(name, location: none, date: none, role: none) = block(below: 0.4em)[
+#let entry(name, location: none, date: none, role: none) = block(below: 0.3em)[
   #grid(
     columns: (1fr, auto),
     align: (left, right),
     [*#name*#if location != none [ | #location]], if date != none { date } else { [] },
   )
   #if role != none {
-    v(-0.8em)
+    v(-0.7em)
     emph(role)
+    v(0.1em)
   }
 ]
 
 #align(center)[
-  #text(size: 20pt)[Daniel Studdard Gallups]
-
+  #text(size: 19pt, weight: "bold")[Daniel Studdard Gallups]
+  #v(-0.25em)
   +1 (765) 464-9247 | #link("https://gallups.com")[gallups.com] | #link("mailto:dsgallups@protonmail.com")[dsgallups\@protonmail.com]
 ]
 
+#section[Skills]
+
+*Languages & Data:* Rust, TypeScript, SQL \
+*Engineering:* Svelte, WebAssembly, WebTransport, async runtimes, multithreaded concurrency, systems programming, GPU compute, CI/CD \
+*Leadership:* team building, mentorship, hiring, technical roadmapping, lightweight agile process
+
 #section[Experience]
 
-#entry("Peacher.com", location: "Atlanta, GA", date: "March 2026 - Current")
-- Political transparency platform designed to relay legislative data based on geographical location. Designed campaigning platform to target local issues and politicians
-- Wrote multithreaded async web runtime
+#entry("Peacher.com", location: "Atlanta, GA", date: "March 2026 - Present", role: "Founder")
+- Founded and independently built a civic-engagement platform that surfaces legislative activity by geographic location, taking it from zero to public launch as the sole engineer
+- Engineered a custom multithreaded async web runtime in *Rust* (Bevy + WebAssembly) that offloads concurrent work like WebTransport across N worker threads, keeping the main UI thread non-blocking
+- Shipped and live: location-based legislative search, real-time legislative updates, user accounts, and posting; currently building local-campaigning tools (signable, action-oriented petitions)
 
 #entry(
   "Adversarial Risk Management",
   location: "Atlanta, GA",
-  date: "May 2023 - March 2026",
-  role: "Fullstack Software Engineer",
+  date: "May 2022 - March 2026",
+  role: "Founding Engineer",
 )
-- Founding engineer, built all major components of a GRC Cybersecurity platform. Currently serving 5 enterprise clients
-- Bespoke WASM-compatible *rendering engine* of abstract types to any drawing interface. Generates from a higher abstraction layer to PNG, SVG, PPTX and Docx. Signal-based reactivity
-- Bespoke Svelte library of Stylistic Components + UX interactions.
+- First engineering hire: built the GRC platform from an empty repo (architecture, CI/CD, *Rust* backend, *Svelte/TypeScript* frontend) and ran solo for the first five months, laying the foundation the team grew around
+- Scaled the team *1 #sym.arrow.r 10* (5 engineers + 4 interns) and revenue from *\$0 to an estimated \$500K ARR* over three years (\$120K #sym.arrow.r \$200K #sym.arrow.r \$500K), landing *5 enterprise clients* across heavy industry within 18 months
+- Ran day-to-day engineering: set technical direction, coordinated deliverables across backend/frontend/UX, and kept a lightweight process: standups only when they earned their keep
+- Mentored a mostly early-career team to own their domains end-to-end; personally onboarded interns, *3 of whom converted to full-time engineers* (2 from Georgia Tech)
+- Architected a *WebAssembly* rendering engine (PNG/SVG/PPTX/DOCX from a single high-level abstraction, signal-based reactivity) and authored the platform's bespoke Svelte component + UX library
+
+#section[Open Source]
+
+#entry(
+  "Published Rust crates",
+  date: link("https://crates.io/users/dsgallups")[crates.io/dsgallups],
+  role: "120K+ all-time downloads",
+)
+- *wasm-tracing*: maintainer of the standard structured-tracing crate for Rust in the browser (*90K+ downloads*)
+- *midix*: strongly-typed MIDI parsing with a Bevy integration and synthesizer (*24K+ combined downloads* across the family)
+- *trotcast* (lock-free MPMC broadcast channel) and *cargo-color-gen* (CLI for Bevy UI color schemes), *4K+ downloads* each
+- Ongoing contributions across the Bevy ecosystem
 
 #section[Projects]
 
-#entry(
-  "Open-source libraries",
-  date: link("https://github.com/dsgallups")[github.com/dsgallups],
-  role: "Owner/Maintainer",
-)
-- *MIDI parser*: Strongly-typed library used to read and write MIDI commands with Bevy extension
-- *wasm-tracing*: Maintained fork of the general tracing-wasm crate
-- General open source contributions (mainly to the bevy ecosystem)
+- *Polynomial NEAT*: GPU-accelerated neuro-evolution architecture using multivariate polynomial expansion to predict outputs
+- *The Rusty Repeater*: networking proxy that defeats JA3/JA4 TLS fingerprinting
+- *Bevy Game Jam 6*: shipped a complete bow-and-arrow game under jam time limits; placed *\#8 of 77*
 
-*Finished Projects*
-- Bevy Game Jam 6 -- Bow-and-arrow game, landed \#8
-- The Rusty Repeater -- an Evil Proxy to beat JA3 and JA4
-- Polynomial NEAT -- A GPU-based rendition of NEAT. ML architecture that utilizes multivariate polynomial expansion to predict output
+#section[Education & Honors]
 
-*Other Projects*
-- Bevy piano-based video game. Working midi editor, game level design still wip
-- Patreon competitor platform (please ask! I probably can't open-source this one)
-- Overengineered cat toy project that burned a hole through my desk
-
-*CSEC work*
-- Achieved 2#super[nd] place in Fall 2021 HackIN competition
-- Active participant of b01lers
-- DEFCON 2025 -- Won Bombe Malware competition
-
-#section[Education]
-
-#entry("Purdue University", location: "West Lafayette, IN.", date: "May 2023")
+#entry("Purdue University", location: "West Lafayette, IN.", date: "May 2023", role: "B.S. in Cybersecurity")
+- *DEFCON 2025*: won the Bombe Malware competition
