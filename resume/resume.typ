@@ -6,14 +6,13 @@
 #set text(font: "Helvetica Neue", size: 10pt)
 #set par(leading: 0.45em, justify: false)
 
-#show list: set list(indent: 0.6em, body-indent: 0.4em)
+#show list: set list(indent: 0.6em, body-indent: 0.4em, spacing: 0.6em)
 
 #let section(title) = {
-  v(0.4em)
   text(weight: "bold", size: 12pt, title)
-  v(-0.5em)
+  v(-0.75em)
   line(length: 100%, stroke: 0.6pt)
-  v(0.05em)
+  v(-0.5em)
 }
 
 #let entry(name, location: none, date: none, role: none) = block(below: 0.3em)[
@@ -25,7 +24,7 @@
   #if role != none {
     v(-0.7em)
     emph(role)
-    v(0.1em)
+    v(0.4em)
   }
 ]
 
@@ -39,7 +38,9 @@
 #section[Skills]
 
 *Languages & Data:* Rust, TypeScript, SQL \
+#v(-0.5em)
 *Engineering:* Svelte, WebAssembly, WebTransport, async runtimes, multithreaded concurrency, systems programming, GPU compute, CI/CD \
+#v(-0.5em)
 *Leadership:* team building, mentorship, hiring, technical roadmapping, lightweight agile process
 
 #section[Experience]
