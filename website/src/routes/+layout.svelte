@@ -13,11 +13,11 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<main class="container mx-auto max-w-180 py-3">
-	<section class="flex items-center justify-between">
-		<h1 class="text-2xl font-[250]">Daniel Studdard Gallups</h1>
+<main class="mx-auto flex max-w-180 flex-col gap-8 px-4 py-6">
+	<header class="flex items-center justify-between gap-4">
+		<h1 class="text-xl font-[250] sm:text-2xl">Daniel Studdard Gallups</h1>
 
 		<LightSwitch />
-	</section>
+	</header>
 	{@render children()}
 </main>

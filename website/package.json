@@ -18,6 +18,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.0.4",
 		"@eslint/js": "^10.0.1",
+		"@icons-pack/svelte-simple-icons": "^7.2.0",
 		"@skeletonlabs/skeleton": "^4.15.2",
 		"@skeletonlabs/skeleton-svelte": "^4.15.2",
 		"@sveltejs/adapter-auto": "^7.0.1",
