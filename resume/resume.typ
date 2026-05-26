@@ -47,7 +47,6 @@
 
 #entry(
   "Adversarial Risk Management",
-  location: "Atlanta, GA",
   date: "May 2022 - March 2026",
   role: "Founding Engineer",
 )
@@ -57,7 +56,7 @@
 - Mentored a mostly early-career team to own their domains end-to-end; personally onboarded interns, *3 of whom converted to full-time engineers* (2 from Georgia Tech)
 - Architected a *WebAssembly* rendering engine (PNG/SVG/PPTX/DOCX from a single high-level abstraction, signal-based reactivity) and authored the platform's bespoke Svelte component + UX library
 
-#entry("Peacher.com", location: "Atlanta, GA", date: "March 2026 - Present", role: "Founder")
+#entry("Peacher.com", date: "March 2026 - Present", role: "Founder")
 - Founded and independently built a civic-engagement platform that surfaces legislative activity by geographic location, taking it from zero to public launch as the sole engineer
 - Engineered a custom multithreaded async web runtime in *Rust* (Bevy + WebAssembly) that offloads concurrent work like WebTransport across N worker threads, keeping the main UI thread non-blocking
 - Shipped and live: location-based legislative search, real-time legislative updates, user accounts, and posting; currently building local-campaigning tools (signable, action-oriented petitions)
