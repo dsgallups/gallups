@@ -31,8 +31,9 @@
 
 #align(center)[
   #text(size: 19pt, weight: "bold")[Daniel Studdard Gallups]
-  #v(-0.25em)
+  #v(-1em)
   +1 (765) 464-9247 | #link("https://gallups.com")[gallups.com] | #link("mailto:dsgallups@protonmail.com")[dsgallups\@protonmail.com]
+  #v(-1em)
 ]
 
 #section[Skills]
@@ -81,4 +82,5 @@
 #section[Education & Honors]
 
 #entry("Purdue University", location: "West Lafayette, IN.", date: "May 2023", role: "B.S. in Cybersecurity")
-- *DEFCON 2025*: won the Bombe Malware competition
+#v(0.5em)
+#entry("Bombe Malware Competition", location: "DEFCON", date: "2025", role: "1st place")
