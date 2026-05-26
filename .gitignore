@@ -1,12 +1,15 @@
 node_modules
 
+
+resume/*.pdf
 # Output
 .output
 .vercel
 .netlify
 .wrangler
-/.svelte-kit
-/build
+.svelte-kit
+build
+.claude
 
 # OS
 .DS_Store
