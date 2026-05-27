@@ -1,0 +1,83 @@
+[package]
+name = "website"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "./src/lib/wasm/src/lib.rs"
+
+[dependencies]
+console_error_panic_hook = { version = "0.1", optional = true }
+js-sys = { version = "0.3" }
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["fmt"] }
+wasm-bindgen = "0.2.100"
+wasm-tracing = "2.1.0"
+
+[dependencies.web-sys]
+version = "0.3.95"
+features = [
+  "CssStyleDeclaration",
+  "Document",
+  "DomRect",
+  "DomTokenList",
+  "Element",
+  "Event",
+  "FocusEvent",
+  "HtmlDivElement",
+  "HtmlDocument",
+  "HtmlElement",
+  "HtmlHeadElement",
+  "HtmlInputElement",
+  "InputEvent",
+  "KeyboardEvent",
+  "Location",
+  "MessageEvent",
+  "Navigator",
+  "PointerEvent",
+  "PopStateEvent",
+  "ReadableStream",
+  "ReadableStreamDefaultReader",
+  "SvgElement",
+  "Text",
+  "WebTransport",
+  "WebTransportBidirectionalStream",
+  "WebTransportHash",
+  "WebTransportOptions",
+  "WebTransportReceiveStream",
+  "WebTransportSendStream",
+  "WheelEvent",
+  "Window",
+  "Worker",
+  "WorkerOptions",
+  "WorkerType",
+  "WritableStream",
+  "WritableStreamDefaultWriter",
+]
+
+[features]
+dev = ["dep:console_error_panic_hook"]
+
+[profile.ultra]
+inherits = "release"
+opt-level = 3
+debug = false
+strip = "none"
+debug-assertions = false
+overflow-checks = false
+lto = "fat"
+# panic = "abort"
+incremental = false
+codegen-units = 1
+
+[profile.wasm_dev]
+inherits = "dev"
+# opt-level = 1
+
+# [profile.wasm_dev.package.'*']
+# opt-level = 3
+
+[profile.wasm_release]
+inherits = "release"
+opt-level = "s"
