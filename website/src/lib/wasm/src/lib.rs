@@ -4,6 +4,7 @@ use wasm_bindgen::prelude::*;
 
 use crate::console_layer::ConsoleLayer;
 mod console_layer;
+mod multithread;
 mod utils;
 
 #[wasm_bindgen]

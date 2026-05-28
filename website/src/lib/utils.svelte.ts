@@ -1,10 +1,25 @@
 import { browser } from '$app/environment';
+import init, { init_hooks } from '$lib/wasm/pkg/website';
+import wasmUrl from '$lib/wasm/pkg/website_bg.wasm?url';
 
 export const appState: {
 	darkMode: boolean | null;
+	wasmHooked: boolean;
 } = $state({
-	darkMode: null
+	darkMode: null,
+	wasmHooked: false
 });
+
+export async function waitForWasm() {
+	if (!browser || appState.wasmHooked) return;
+
+	await init({ module_or_path: wasmUrl });
+
+	if (!appState.wasmHooked) {
+		appState.wasmHooked = true;
+		init_hooks();
+	}
+}
 
 export function initAppState() {
 	if (!browser) return;
