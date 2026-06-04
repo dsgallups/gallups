@@ -9,7 +9,7 @@
 // inline; async tasks return a Promise that we `await`, yielding to the
 // JS event loop so the future can make progress.
 
-import init, { __webwoke_worker_step } from '/frontend_wasm.js';
+import init, { worker_step } from '/frontend_wasm.js';
 
 self.onmessage = async ({ data }) => {
 	const [module, memory, workerId] = data;

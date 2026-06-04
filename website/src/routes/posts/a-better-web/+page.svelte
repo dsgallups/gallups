@@ -12,6 +12,13 @@
 		<button class="btn preset-filled">Spawn some threads!</button>
 	</div>
 
+	<h2 class="h2">How?</h2>
+
+	<ol>
+		<li>Enable the necessary rust flags in <code class="code">Cargo.toml</code></li>
+		<li>Add our <code class="code">webworker.js</code> code</li>
+	</ol>
+
 	<p>To do this, you need, in your <code class="code">Cargo.toml</code>:</p>
 	<code class="prose-code">
 		<pre>
