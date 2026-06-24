@@ -82,3 +82,10 @@ inherits = "dev"
 [profile.wasm_release]
 inherits = "release"
 opt-level = "s"
+
+# Dev override: build against the local webble checkout so the in-progress
+# introspection accessors (worker_loads, idle_snapshot) are available before
+# they land on the `improvements` branch. Push those accessors upstream and
+# remove this patch before shipping the post.
+[patch."https://github.com/dsgallups/webble.git"]
+webble = { path = "../../../peachspace/webble" }

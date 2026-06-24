@@ -48,12 +48,160 @@ export function init_hooks() {
     wasm.init_hooks();
 }
 
+/**
+ * @returns {number}
+ */
+export function mandel_generation() {
+    const ret = wasm.mandel_generation();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_height() {
+    const ret = wasm.mandel_height();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_owner_ptr() {
+    const ret = wasm.mandel_owner_ptr();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_pixels_ptr() {
+    const ret = wasm.mandel_pixels_ptr();
+    return ret >>> 0;
+}
+
+/**
+ * Kick off a render. Returns the generation id for this frame; the caller polls
+ * [`mandel_tiles_done`] against [`mandel_tiles_total`] and reads the pixel buffer each frame.
+ * @param {number} width
+ * @param {number} height
+ * @param {number} tile
+ * @param {number} cx
+ * @param {number} cy
+ * @param {number} scale
+ * @param {number} max_iter
+ * @param {boolean} single_thread
+ * @returns {number}
+ */
+export function mandel_render(width, height, tile, cx, cy, scale, max_iter, single_thread) {
+    const ret = wasm.mandel_render(width, height, tile, cx, cy, scale, max_iter, single_thread);
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_tile() {
+    const ret = wasm.mandel_tile();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_tiles_done() {
+    const ret = wasm.mandel_tiles_done();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_tiles_total() {
+    const ret = wasm.mandel_tiles_total();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_tiles_x() {
+    const ret = wasm.mandel_tiles_x();
+    return ret >>> 0;
+}
+
+/**
+ * @returns {number}
+ */
+export function mandel_width() {
+    const ret = wasm.mandel_width();
+    return ret >>> 0;
+}
+
 export function mount_workers() {
     wasm.mount_workers();
 }
 
+/**
+ * Parked-worker bitmask: bit `i` set means worker `i` is asleep in `Atomics.waitAsync`.
+ * @returns {number}
+ */
+export function sched_idle() {
+    const ret = wasm.sched_idle();
+    return ret >>> 0;
+}
+
+/**
+ * Per-worker live pinned load (entry `i` = worker `i`).
+ * @returns {Uint32Array}
+ */
+export function sched_loads() {
+    const ret = wasm.sched_loads();
+    var v1 = getArrayU32FromWasm0(ret[0], ret[1]).slice();
+    wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
+    return v1;
+}
+
+/**
+ * Number of live workers in the pool.
+ * @returns {number}
+ */
+export function sched_num_workers() {
+    const ret = wasm.sched_num_workers();
+    return ret >>> 0;
+}
+
+/**
+ * Tasks that have been placed/queued but are not yet running.
+ * @returns {number}
+ */
+export function sched_waiting() {
+    const ret = wasm.sched_waiting();
+    return ret >>> 0;
+}
+
+/**
+ * Spawn `n` pinned tasks, each grinding through `work` units of CPU-bound busy-work so they
+ * take long enough to watch. Returns immediately; the tasks run on the worker pool.
+ * @param {number} n
+ * @param {number} work
+ */
+export function scheduler_inject(n, work) {
+    wasm.scheduler_inject(n, work);
+}
+
 export function unmount_workers() {
     wasm.unmount_workers();
+}
+
+/**
+ * The module's `WebAssembly.Memory`. The demos write pixels/telemetry into shared linear memory;
+ * the main thread reads them back by building typed-array views over `wasm_memory().buffer`.
+ * @returns {any}
+ */
+export function wasm_memory() {
+    const ret = wasm.wasm_memory();
+    return ret;
 }
 function __wbg_get_imports(memory) {
     const import0 = {
@@ -211,12 +359,12 @@ function __wbg_get_imports(memory) {
             console.warn(getStringFromWasm0(arg0, arg1));
         },
         __wbindgen_cast_0000000000000001: function(arg0, arg1) {
-            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Externref], shim_idx: 97, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Externref], shim_idx: 160, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
             const ret = makeMutClosure(arg0, arg1, wasm_bindgen_f183f172ff9cbd62___convert__closures_____invoke___wasm_bindgen_f183f172ff9cbd62___JsValue______true_);
             return ret;
         },
         __wbindgen_cast_0000000000000002: function(arg0, arg1) {
-            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [], shim_idx: 96, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [], shim_idx: 159, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
             const ret = makeMutClosure(arg0, arg1, wasm_bindgen_f183f172ff9cbd62___convert__closures_____invoke_______true_);
             return ret;
         },
@@ -333,6 +481,11 @@ function debugString(val) {
     return className;
 }
 
+function getArrayU32FromWasm0(ptr, len) {
+    ptr = ptr >>> 0;
+    return getUint32ArrayMemory0().subarray(ptr / 4, ptr / 4 + len);
+}
+
 let cachedDataViewMemory0 = null;
 function getDataViewMemory0() {
     if (cachedDataViewMemory0 === null || cachedDataViewMemory0.buffer !== wasm.memory.buffer) {
@@ -343,6 +496,14 @@ function getDataViewMemory0() {
 
 function getStringFromWasm0(ptr, len) {
     return decodeText(ptr >>> 0, len);
+}
+
+let cachedUint32ArrayMemory0 = null;
+function getUint32ArrayMemory0() {
+    if (cachedUint32ArrayMemory0 === null || cachedUint32ArrayMemory0.buffer !== wasm.memory.buffer) {
+        cachedUint32ArrayMemory0 = new Uint32Array(wasm.memory.buffer);
+    }
+    return cachedUint32ArrayMemory0;
 }
 
 let cachedUint8ArrayMemory0 = null;
@@ -467,6 +628,7 @@ function __wbg_finalize_init(instance, module, thread_stack_size) {
     wasm = instance.exports;
     wasmModule = module;
     cachedDataViewMemory0 = null;
+    cachedUint32ArrayMemory0 = null;
     cachedUint8ArrayMemory0 = null;
     if (typeof thread_stack_size !== 'undefined' && (typeof thread_stack_size !== 'number' || thread_stack_size === 0 || thread_stack_size % 65536 !== 0)) {
         throw new Error('invalid stack size');

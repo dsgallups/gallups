@@ -35,15 +35,87 @@ export function __worker_drain(worker_id: number): boolean;
 
 export function init_hooks(): void;
 
+export function mandel_generation(): number;
+
+export function mandel_height(): number;
+
+export function mandel_owner_ptr(): number;
+
+export function mandel_pixels_ptr(): number;
+
+/**
+ * Kick off a render. Returns the generation id for this frame; the caller polls
+ * [`mandel_tiles_done`] against [`mandel_tiles_total`] and reads the pixel buffer each frame.
+ */
+export function mandel_render(width: number, height: number, tile: number, cx: number, cy: number, scale: number, max_iter: number, single_thread: boolean): number;
+
+export function mandel_tile(): number;
+
+export function mandel_tiles_done(): number;
+
+export function mandel_tiles_total(): number;
+
+export function mandel_tiles_x(): number;
+
+export function mandel_width(): number;
+
 export function mount_workers(): void;
 
+/**
+ * Parked-worker bitmask: bit `i` set means worker `i` is asleep in `Atomics.waitAsync`.
+ */
+export function sched_idle(): number;
+
+/**
+ * Per-worker live pinned load (entry `i` = worker `i`).
+ */
+export function sched_loads(): Uint32Array;
+
+/**
+ * Number of live workers in the pool.
+ */
+export function sched_num_workers(): number;
+
+/**
+ * Tasks that have been placed/queued but are not yet running.
+ */
+export function sched_waiting(): number;
+
+/**
+ * Spawn `n` pinned tasks, each grinding through `work` units of CPU-bound busy-work so they
+ * take long enough to watch. Returns immediately; the tasks run on the worker pool.
+ */
+export function scheduler_inject(n: number, work: number): void;
+
 export function unmount_workers(): void;
+
+/**
+ * The module's `WebAssembly.Memory`. The demos write pixels/telemetry into shared linear memory;
+ * the main thread reads them back by building typed-array views over `wasm_memory().buffer`.
+ */
+export function wasm_memory(): any;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
     readonly mount_workers: () => void;
     readonly unmount_workers: () => void;
+    readonly mandel_generation: () => number;
+    readonly mandel_height: () => number;
+    readonly mandel_owner_ptr: () => number;
+    readonly mandel_pixels_ptr: () => number;
+    readonly mandel_render: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => number;
+    readonly mandel_tile: () => number;
+    readonly mandel_tiles_done: () => number;
+    readonly mandel_tiles_total: () => number;
+    readonly mandel_tiles_x: () => number;
+    readonly mandel_width: () => number;
+    readonly wasm_memory: () => any;
+    readonly sched_idle: () => number;
+    readonly sched_loads: () => [number, number];
+    readonly sched_num_workers: () => number;
+    readonly sched_waiting: () => number;
+    readonly scheduler_inject: (a: number, b: number) => void;
     readonly init_hooks: () => void;
     readonly __notify_index: (a: number) => number;
     readonly __worker_drain: (a: number) => number;

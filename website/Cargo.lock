@@ -374,7 +374,6 @@ dependencies = [
 [[package]]
 name = "webble"
 version = "0.0.2"
-source = "git+https://github.com/dsgallups/webble.git?branch=improvements#17da8d0bacdba3c6a22f1734e1903ce8f513d2d0"
 dependencies = [
  "async-channel",
  "async-task",
