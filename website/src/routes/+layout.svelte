@@ -4,6 +4,7 @@
 	import LightSwitch from '$lib/LightSwitch.svelte';
 	import { onMount } from 'svelte';
 	import { initAppState } from '$lib/utils.svelte';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 
@@ -15,7 +16,9 @@
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 <main class="mx-auto flex max-w-180 flex-col gap-8 px-4 py-6">
 	<header class="flex items-center justify-between gap-4">
-		<h1 class="text-xl font-[250] sm:text-2xl">Daniel Studdard Gallups</h1>
+		<h1 class="text-xl font-[250] sm:text-2xl">
+			<a href={resolve('/')}>Daniel Studdard Gallups</a>
+		</h1>
 
 		<LightSwitch />
 	</header>

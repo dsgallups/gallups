@@ -1,5 +1,19 @@
 <script lang="ts">
 	import Post from '$lib/components/Post.svelte';
+	import { appState, waitForWasm } from '$lib/utils.svelte';
+	import { mount_workers, unmount_workers } from '$lib/wasm/pkg/website';
+	import { onDestroy, onMount } from 'svelte';
+
+	onMount(async () => {
+		await waitForWasm();
+		mount_workers();
+	});
+
+	onDestroy(() => {
+		if (appState.wasmHooked) {
+			unmount_workers();
+		}
+	});
 </script>
 
 <Post title="A Better Web">

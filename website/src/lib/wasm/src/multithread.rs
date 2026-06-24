@@ -1,8 +1,11 @@
 use wasm_bindgen::prelude::*;
 
-/// This is the entry point for starting the webworker.
-/// This thread will await sync/async work.
 #[wasm_bindgen]
-pub fn worker_step(worker_id: u32) -> JsValue {
-    todo!()
+pub fn mount_workers() {
+    webble::builder().glue_path("/frontend_wasm.js").init().unwrap();
+}
+
+#[wasm_bindgen]
+pub fn unmount_workers() {
+    webble::shutdown();
 }
