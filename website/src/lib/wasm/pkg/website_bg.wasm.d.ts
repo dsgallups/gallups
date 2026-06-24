@@ -1,0 +1,35 @@
+/* tslint:disable */
+/* eslint-disable */
+export const sched_idle: () => number;
+export const sched_loads: () => [number, number];
+export const sched_num_workers: () => number;
+export const sched_waiting: () => number;
+export const scheduler_inject: (a: number, b: number) => void;
+export const wasm_memory: () => any;
+export const init_hooks: () => void;
+export const mount_workers: () => void;
+export const unmount_workers: () => void;
+export const mandel_generation: () => number;
+export const mandel_height: () => number;
+export const mandel_owner_ptr: () => number;
+export const mandel_pixels_ptr: () => number;
+export const mandel_render: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => number;
+export const mandel_tile: () => number;
+export const mandel_tiles_done: () => number;
+export const mandel_tiles_total: () => number;
+export const mandel_tiles_x: () => number;
+export const mandel_width: () => number;
+export const __notify_index: (a: number) => number;
+export const __worker_drain: (a: number) => number;
+export const __wasm_bindgen_func_elem_226: (a: number, b: number, c: any) => void;
+export const __wasm_bindgen_func_elem_225: (a: number, b: number) => void;
+export const memory: WebAssembly.Memory;
+export const __wbindgen_export: (a: number, b: number) => number;
+export const __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_export3: (a: number) => void;
+export const __wbindgen_export4: () => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __wbindgen_export5: (a: number, b: number) => void;
+export const __wbindgen_export6: (a: number, b: number, c: number) => void;
+export const __wbindgen_thread_destroy: (a?: number, b?: number, c?: number) => void;
+export const __wbindgen_start: (a: number) => void;

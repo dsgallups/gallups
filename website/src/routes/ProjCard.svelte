@@ -17,7 +17,7 @@
 	{href}
 	target={is_external ? '_blank' : '_self'}
 	rel={is_external ? 'noopener noreferrer' : ''}
-	class="card group preset-filled-surface-100-900 card-hover divide-surface-200-800 block divide-y overflow-hidden border-[1px] border-surface-200-800 text-inherit no-underline"
+	class="group block divide-y divide-surface-200-800 overflow-hidden card border-[1px] border-surface-200-800 preset-filled-surface-100-900 text-inherit no-underline card-hover"
 >
 	<header>
 		<img src={banner} class="aspect-[21/9] w-full object-cover" alt={name} />

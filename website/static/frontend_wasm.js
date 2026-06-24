@@ -1,0 +1,1 @@
+../src/lib/wasm/pkg/website.js

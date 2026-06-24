@@ -1,10 +1,23 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig, type Plugin } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 
+function crossOriginIsolation(): Plugin {
+	return {
+		name: 'cross-origin-isolation',
+		configureServer(server) {
+			server.middlewares.use((_req, res, next) => {
+				res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+				res.setHeader('Cross-Origin-Embedder-Policy', 'credentialless');
+				next();
+			});
+		}
+	};
+}
+
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit()],
+	plugins: [crossOriginIsolation(), tailwindcss(), sveltekit()],
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
