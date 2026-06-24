@@ -459,9 +459,9 @@ build-std = ["std", "panic_abort"]</code
 	</p>
 
 	<p>
-		The web has had real threads sitting in the toolbox for a while now. They were just buried under
-		a decade of security history and a pile of build flags. webble is my attempt to hand them to you
-		the way they should feel. With time, I hope this becomes a stepping stone to a more performant
-		web.
+		The web has had real threads sitting in the toolbox for a while now. They were, and still are,
+		buried under a decade of security history and a pile of build flags. And while I can't
+		immediately fix the above annoyances, webble is my attempt to hand you a tool. Let me know what
+		you think. To a more performant web!
 	</p>
 </Post>
