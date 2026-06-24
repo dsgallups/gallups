@@ -16,7 +16,7 @@
 				Main thread
 			</text>
 			<text x="60" y="72" class="fill-current" font-size="12" fill-opacity="0.8">
-				event loop · DOM · on_main() work · never blocks (Atomics.waitAsync)
+				event loop - DOM - on_main() work - never blocks (Atomics.waitAsync)
 			</text>
 		</g>
 
@@ -69,11 +69,10 @@
 				Shared linear memory (SharedArrayBuffer)
 			</text>
 			<text x="60" y="282" class="fill-current" font-size="12" fill-opacity="0.85">
-				one scheduler · per-worker slots · work-stealing deques · futex words
+				one scheduler - per-worker slots - work-stealing deques - futex words
 			</text>
 			<text x="60" y="304" class="fill-current" font-size="12" fill-opacity="0.85">
-				every worker sees the same state at the same address, so spawning is a queue push, not a
-				postMessage
+				every worker sees the same state at the same address
 			</text>
 		</g>
 

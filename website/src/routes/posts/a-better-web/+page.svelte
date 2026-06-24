@@ -335,8 +335,7 @@ let handles: Vec&lt;_&gt; = (0..64)
 	<p>
 		Here's the scheduler, live. Every bar below is a real worker thread in <em>your</em> browser. Hit
 		inject and watch webble place a burst of tasks on the least-loaded workers, drain them, and park the
-		workers again when the queue empties. The numbers are read straight out of the runtime each frame,
-		nothing is faked:
+		workers again when the queue empties. The numbers are read straight out of the runtime each frame.
 	</p>
 
 	<SchedulerDemo />
