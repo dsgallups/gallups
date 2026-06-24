@@ -74,6 +74,13 @@ export function wasm_memory(): any;
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
+    readonly sched_idle: () => number;
+    readonly sched_loads: () => [number, number];
+    readonly sched_num_workers: () => number;
+    readonly sched_waiting: () => number;
+    readonly scheduler_inject: (a: number, b: number) => void;
+    readonly wasm_memory: () => any;
+    readonly init_hooks: () => void;
     readonly mount_workers: () => void;
     readonly unmount_workers: () => void;
     readonly mandel_generation: () => number;
@@ -86,25 +93,18 @@ export interface InitOutput {
     readonly mandel_tiles_total: () => number;
     readonly mandel_tiles_x: () => number;
     readonly mandel_width: () => number;
-    readonly wasm_memory: () => any;
-    readonly sched_idle: () => number;
-    readonly sched_loads: () => [number, number];
-    readonly sched_num_workers: () => number;
-    readonly sched_waiting: () => number;
-    readonly scheduler_inject: (a: number, b: number) => void;
-    readonly init_hooks: () => void;
     readonly __notify_index: (a: number) => number;
     readonly __worker_drain: (a: number) => number;
-    readonly wasm_bindgen_f183f172ff9cbd62___convert__closures_____invoke___wasm_bindgen_f183f172ff9cbd62___JsValue______true_: (a: number, b: number, c: any) => void;
-    readonly wasm_bindgen_f183f172ff9cbd62___convert__closures_____invoke_______true_: (a: number, b: number) => void;
+    readonly __wasm_bindgen_func_elem_226: (a: number, b: number, c: any) => void;
+    readonly __wasm_bindgen_func_elem_225: (a: number, b: number) => void;
     readonly memory: WebAssembly.Memory;
-    readonly __wbindgen_malloc: (a: number, b: number) => number;
-    readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
-    readonly __wbindgen_free: (a: number, b: number, c: number) => void;
-    readonly __wbindgen_exn_store: (a: number) => void;
-    readonly __externref_table_alloc: () => number;
+    readonly __wbindgen_export: (a: number, b: number) => number;
+    readonly __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
+    readonly __wbindgen_export3: (a: number) => void;
+    readonly __wbindgen_export4: () => number;
     readonly __wbindgen_externrefs: WebAssembly.Table;
-    readonly __wbindgen_destroy_closure: (a: number, b: number) => void;
+    readonly __wbindgen_export5: (a: number, b: number) => void;
+    readonly __wbindgen_export6: (a: number, b: number, c: number) => void;
     readonly __wbindgen_thread_destroy: (a?: number, b?: number, c?: number) => void;
     readonly __wbindgen_start: (a: number) => void;
 }
