@@ -350,10 +350,10 @@ let handles: Vec&lt;_&gt; = (0..64)
 	</p>
 
 	<p>
-		One of my favorite illustrations is the Mandelbrot set. I know, a bit boring, but it's quite a
-		great stress test. Every pixel an independent little computation, and the pixels near the
-		boundary are wildly more expensive than the ones far away. The image is chopped into tiles, and
-		each tile is a webble task.
+		One of my favorite illustrations is the Mandelbrot set. I know, a bit on the nose for a
+		multithreading demo, but it's quite a great stress test. Every pixel is an independent
+		computation, and the pixels near the boundary are wildly more expensive than the ones far away.
+		The image is chopped into tiles, and each tile is a webble task.
 	</p>
 
 	<p>
@@ -366,7 +366,7 @@ let handles: Vec&lt;_&gt; = (0..64)
 
 	<p>
 		Note: the speedup isn't a perfect Nx. You're bounded by your core count, by the tiles that
-		finish fast leaving a worker idle, and by the honest overhead of coordination. But, it's real
+		finish fast leaving a worker idle, and by the overhead of coordination. But, it's real
 		parallelism. It's off the main thread (the page stays responsive the entire render), and the
 		tinting shows work-stealing doing its job: when one worker gets stuck on a dense tile, the
 		others steal the easy ones and keep moving.
