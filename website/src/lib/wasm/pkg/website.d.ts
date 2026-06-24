@@ -3,14 +3,18 @@
 
 export function init_hooks(): void;
 
+/**
+ * This is the entry point for starting the webworker.
+ * This thread will await sync/async work.
+ */
+export function worker_step(worker_id: number): any;
+
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
+    readonly worker_step: (a: number) => any;
     readonly init_hooks: () => void;
     readonly memory: WebAssembly.Memory;
-    readonly __wbindgen_free: (a: number, b: number, c: number) => void;
-    readonly __wbindgen_malloc: (a: number, b: number) => number;
-    readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
     readonly __wbindgen_externrefs: WebAssembly.Table;
     readonly __wbindgen_thread_destroy: (a?: number, b?: number, c?: number) => void;
     readonly __wbindgen_start: (a: number) => void;

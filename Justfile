@@ -9,7 +9,8 @@ resume:
 [working-directory('website')]
 wasm:
     RUSTUP_TOOLCHAIN=nightly cargo build --target wasm32-unknown-unknown --profile wasm_release -p website -Z build-std=std,panic_abort
-    wasm-bindgen --target web --typescript --out-dir src/lib/wasm/pkg target/wasm32-unknown-unknown/wasm_release/website.wasm
+    wasm-opt -Oz target/wasm32-unknown-unknown/wasm_release/website.wasm -o target/wasm32-unknown-unknown/wasm_release/website_opt.wasm
+    wasm-bindgen --target web --typescript --out-dir src/lib/wasm/pkg --out-name website target/wasm32-unknown-unknown/wasm_release/website_opt.wasm
 
 [working-directory('website')]
 wasm-dev:
