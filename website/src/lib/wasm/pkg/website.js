@@ -81,8 +81,6 @@ export function mandel_pixels_ptr() {
 }
 
 /**
- * Kick off a render. Returns the generation id for this frame; the caller polls
- * [`mandel_tiles_done`] against [`mandel_tiles_total`] and reads the pixel buffer each frame.
  * @param {number} width
  * @param {number} height
  * @param {number} tile
@@ -143,7 +141,6 @@ export function mount_workers() {
 }
 
 /**
- * Parked-worker bitmask: bit `i` set means worker `i` is asleep in `Atomics.waitAsync`.
  * @returns {number}
  */
 export function sched_idle() {
@@ -152,7 +149,6 @@ export function sched_idle() {
 }
 
 /**
- * Per-worker live pinned load (entry `i` = worker `i`).
  * @returns {Uint32Array}
  */
 export function sched_loads() {
@@ -163,7 +159,6 @@ export function sched_loads() {
 }
 
 /**
- * Number of live workers in the pool.
  * @returns {number}
  */
 export function sched_num_workers() {
@@ -172,7 +167,6 @@ export function sched_num_workers() {
 }
 
 /**
- * Tasks that have been placed/queued but are not yet running.
  * @returns {number}
  */
 export function sched_waiting() {
@@ -181,8 +175,6 @@ export function sched_waiting() {
 }
 
 /**
- * Spawn `n` pinned tasks, each grinding through `work` units of CPU-bound busy-work so they
- * take long enough to watch. Returns immediately; the tasks run on the worker pool.
  * @param {number} n
  * @param {number} work
  */
@@ -195,8 +187,6 @@ export function unmount_workers() {
 }
 
 /**
- * The module's `WebAssembly.Memory`. The demos write pixels/telemetry into shared linear memory;
- * the main thread reads them back by building typed-array views over `wasm_memory().buffer`.
  * @returns {any}
  */
 export function wasm_memory() {
