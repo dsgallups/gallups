@@ -23,7 +23,7 @@
 		</SocialLink>
 	</div>
 	<Section title="Posts">
-		<a href={resolve('/posts/a-better-web')}>A better web</a>
+		<a href={resolve('/posts/a-better-web')}>Webble: A Stepping Stone for a Better Web</a>
 	</Section>
 	<Section title="Open Source">
 		<div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,200px),1fr))] gap-3">
