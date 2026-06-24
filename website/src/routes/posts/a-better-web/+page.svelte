@@ -278,9 +278,9 @@ Cross-Origin-Embedder-Policy: require-corp</code
 	<p>
 		The core idea is that there's exactly <em>one</em> runtime per module, because the scheduler
 		itself lives in shared linear memory. Every worker maps the same module and the same memory, so
-		every worker sees the same scheduling state at the same address. Spawning a task isn't a
-		<code>postMessage</code> with a serialized payload, it's a push onto a queue that every thread can
-		already see. It looks like this:
+		every worker sees the same scheduling state at the same address. Spawning a task is no longer a
+		<code>postMessage</code> serialized payload copy. Now, it's a push onto a queue that every thread
+		can see (and steal if the opportunity arises). It looks like this:
 	</p>
 
 	<RuntimeDiagram />
@@ -306,7 +306,7 @@ let handles: Vec&lt;_&gt; = (0..64)
     .collect();</code
 		></pre>
 
-	<p>There are two tracks, and the distinction is the whole game:</p>
+	<p>There are two tracks:</p>
 
 	<ul>
 		<li>
