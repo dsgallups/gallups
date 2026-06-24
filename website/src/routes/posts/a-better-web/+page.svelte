@@ -19,6 +19,7 @@
 </script>
 
 <Post title="A Better Web">
+	<sub>June 24, 2026</sub>
 	<p>Don't we love webassembly?</p>
 	<p>I do.</p>
 
