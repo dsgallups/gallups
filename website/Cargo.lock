@@ -374,6 +374,8 @@ dependencies = [
 [[package]]
 name = "webble"
 version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3aa77ec9277929d0a3fd57d146471b60fb9ea1fc09f05cbe5b02f6b8054626c"
 dependencies = [
  "async-channel",
  "async-task",

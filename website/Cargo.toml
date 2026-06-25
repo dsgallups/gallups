@@ -14,7 +14,7 @@ tracing = { version = "0.1" }
 tracing-subscriber = { version = "0.3", features = ["fmt"] }
 wasm-bindgen = "0.2.125"
 wasm-tracing = "2.1.0"
-webble = { git = "https://github.com/dsgallups/webble.git", branch = "improvements" }
+webble = { version = "0.0.2", features = ["debug"] }
 
 [dependencies.web-sys]
 version = "0.3"
@@ -82,10 +82,3 @@ inherits = "dev"
 [profile.wasm_release]
 inherits = "release"
 opt-level = "s"
-
-# Dev override: build against the local webble checkout so the in-progress
-# introspection accessors (worker_loads, idle_snapshot) are available before
-# they land on the `improvements` branch. Push those accessors upstream and
-# remove this patch before shipping the post.
-[patch."https://github.com/dsgallups/webble.git"]
-webble = { path = "../../../peachspace/webble" }
