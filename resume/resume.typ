@@ -1,6 +1,6 @@
 #set page(
   paper: "us-letter",
-  margin: (x: 0.7in, top: 0.45in, bottom: 0.45in),
+  margin: (x: 0.7in, top: 0.4in, bottom: 0.35in),
 )
 
 #set text(font: "Helvetica Neue", size: 10pt)
@@ -46,20 +46,30 @@
 #section[Experience]
 
 #entry(
+  "Tennr",
+  location: "New York, NY",
+  date: "August 2026 - Present",
+  role: "Software Engineer, Core Platform",
+)
+- Primary engineer for *Patient Hub*, the center of Tennr's customer-facing healthcare platform, owning its maintenance, upgrades, and new features in *TypeScript*
+- Shipped bug fixes and features, including urgent-patient flagging so a patient's workflows skip the line
+- Went onsite with a customer to diagnose friction in their workflows, then implemented the fixes
+- Led the cross-team discussion on deriving order checklists via reachability analysis over cyclic workflow graphs, determining when an order's possible stages are exhaustive, possibly unknown, or unknowable
+
+#entry(
   "Adversarial Risk Management",
   date: "May 2022 - March 2026",
   role: "Founding Engineer",
 )
 - First engineering hire: built the GRC platform from an empty repo (architecture, CI/CD, *Rust* backend, *Svelte/TypeScript* frontend) and ran solo for the first five months, laying the foundation the team grew around
 - Scaled the team *1 #sym.arrow.r 10* (5 engineers + 4 interns) and revenue from *\$0 to an estimated \$500K ARR* over three years (\$120K #sym.arrow.r \$200K #sym.arrow.r \$500K), landing *5 enterprise clients* across heavy industry within 18 months
-- Ran day-to-day engineering: set technical direction, coordinated deliverables across backend/frontend/UX, and kept a lightweight process: standups only when they earned their keep
+- Ran day-to-day engineering: set technical direction, coordinated deliverables across backend/frontend/UX, and kept a lightweight process with standups only when they earned their keep
 - Mentored a mostly early-career team to own their domains end-to-end; personally onboarded interns, *3 of whom converted to full-time engineers* (2 from Georgia Tech)
 - Architected a *WebAssembly* rendering engine (PNG/SVG/PPTX/DOCX from a single high-level abstraction, signal-based reactivity) and authored the platform's bespoke Svelte component + UX library
 
-#entry("Peacher.app", date: "March 2026 - Present", role: "Founder")
-- Founded and independently built a civic-engagement platform that surfaces legislative activity by geographic location, taking it from zero to public launch as the sole engineer
+#entry("Peacher.app", date: "March 2026 - Present", role: "Side Project")
+- Solo-built a civic-engagement platform that surfaces legislative activity by location; live with search, real-time updates, accounts, and posting, now adding local-campaigning tools (signable petitions)
 - Engineered a custom multithreaded async web runtime in *Rust* (Bevy + WebAssembly) that offloads concurrent work like WebTransport across N worker threads, keeping the main UI thread non-blocking
-- Shipped and live: location-based legislative search, real-time legislative updates, user accounts, and posting; currently building local-campaigning tools (signable, action-oriented petitions)
 
 #section[Open Source]
 
@@ -69,18 +79,17 @@
   role: "120K+ all-time downloads",
 )
 - *wasm-tracing*: maintainer of the standard structured-tracing crate for Rust in the browser (*90K+ downloads*)
-- *midix*: strongly-typed MIDI parsing with a Bevy integration and synthesizer (*24K+ combined downloads* across the family)
-- *trotcast* (lock-free MPMC broadcast channel) and *cargo-color-gen* (CLI for Bevy UI color schemes), *4K+ downloads* each
+- *midix*: strongly typed MIDI parsing with Bevy integration and a synth (*24K+ downloads* across the family)
+- *trotcast* (lock-free MPMC channel) and *cargo-color-gen* (Bevy UI color CLI), *4K+ downloads* each
 - Ongoing contributions across the Bevy ecosystem
 
 #section[Projects]
 
-- *Polynomial NEAT*: GPU-accelerated neuro-evolution architecture using multivariate polynomial expansion to predict outputs
-- *The Rusty Repeater*: networking proxy that defeats JA3/JA4 TLS fingerprinting
+- *Polynomial NEAT*: GPU-accelerated neuro-evolution via multivariate polynomial expansion
 - *Bevy Game Jam 6*: shipped a complete bow-and-arrow game under jam time limits; placed *\#8 of 77*
 
 #section[Education & Honors]
 
-#entry("Purdue University", location: "West Lafayette, IN.", date: "May 2023", role: "B.S. in Cybersecurity")
+#entry("Purdue University", location: "West Lafayette, IN", date: "May 2023", role: "B.S. in Cybersecurity")
 #v(0.5em)
 #entry("Bombe Malware Competition", location: "DEFCON", date: "2025", role: "1st place")
